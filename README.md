@@ -1,4 +1,4 @@
-<div align="center"><img src="http://i.imgur.com/kMnwB2H.png"/>
+<div align="center"><img src="http://i.imgur.com/kMnwB2H.png"/></div>
 ===
 
-Simple integration for the <b>[SparkFun ISL29125 RGB Light Sensor](https://www.sparkfun.com/products/12829)</b> with the <b>NI roboRIO</b>, for FIRST Robotics.</div>
+<div align="center">Simple integration for the <b><a href="https://www.sparkfun.com/products/12829">SparkFun ISL29125 RGB Light Sensor</a></b> with the <b>NI roboRIO</b>, for FIRST Robotics.</div>
