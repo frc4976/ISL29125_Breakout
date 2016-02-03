@@ -2,13 +2,15 @@ package ca._4976.color;
 
 import edu.wpi.first.wpilibj.I2C;
 
+import java.util.Arrays;
+
 public class ISL29125 {
 
 	// The I2C Sensor
 	private I2C sensor;
 
 	// The buffers for data storage
-	private byte[] buffer8, buffer16;
+	private byte[] buffer81, buffer82;
 
 	// The buffers for color storage
 	private int[] color;
@@ -19,8 +21,8 @@ public class ISL29125 {
 		sensor = new I2C(I2C.Port.kOnboard, ISL_I2C_ADDR);
 
 		// Initialize the byte buffers for 8-bit and 16-bit data storage
-		buffer8 = new byte[1];
-		buffer16 = new byte[2];
+		buffer81 = new byte[1];
+		buffer82 = new byte[1];
 		
 		// Initialize the color buffer for color storage
 		color = new int[3];
@@ -40,7 +42,7 @@ public class ISL29125 {
 		ret &= reset();
 
 		//Set to RGB mode, 375 lux, and high IR compensation
-		ret &= config(CFG1_MODE_RGB | CFG1_375LUX, CFG2_IR_ADJUST_HIGH, CFG_DEFAULT);
+		ret &= config(CFG1_MODE_RGB | CFG1_10KLUX, CFG2_IR_ADJUST_HIGH, CFG_DEFAULT);
 
 		return ret;
 	}
@@ -89,14 +91,14 @@ public class ISL29125 {
 		color[0] = read16(RED_L);
 		color[1] = read16(GREEN_L);
 		color[2] = read16(BLUE_L);
-		return color;
 
+		return Arrays.copyOf(color, color.length);
 	}
 
 	// Generic I2C read register (single byte)
 	private int read8(int registerAddress) {
-		sensor.read(registerAddress, 1, buffer8);
-		return buffer8[0];
+		sensor.read(registerAddress, 1, buffer81);
+		return buffer81[0];
 	}
 
 	//Generic I2C write data to register (single byte)
@@ -106,8 +108,9 @@ public class ISL29125 {
 	
 	//Generic I2C read registers (two bytes)
 	private int read16(int registerAddress) {
-		sensor.read(registerAddress, 2, buffer16);
-		return (buffer16[0] |= buffer16[1]);
+		sensor.read(registerAddress, 1, buffer81);
+		sensor.read(registerAddress + 1, 1, buffer82);
+		return (buffer81[0] |= (buffer82[0] << 8));
 	}
 	
 	// BEGIN STATIC CONSTANTS //
