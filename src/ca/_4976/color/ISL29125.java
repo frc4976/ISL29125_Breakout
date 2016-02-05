@@ -10,7 +10,7 @@ public class ISL29125 {
 	private I2C sensor;
 
 	// The buffers for data storage
-	private byte[] buffer81, buffer82;
+	private byte[] buffer1, buffer2;
 
 	// The buffers for color storage
 	private int[] color;
@@ -21,8 +21,8 @@ public class ISL29125 {
 		sensor = new I2C(I2C.Port.kOnboard, ISL_I2C_ADDR);
 
 		// Initialize the byte buffers for 8-bit and 16-bit data storage
-		buffer81 = new byte[1];
-		buffer82 = new byte[1];
+		buffer1 = new byte[1];
+		buffer2 = new byte[1];
 		
 		// Initialize the color buffer for color storage
 		color = new int[3];
@@ -42,7 +42,7 @@ public class ISL29125 {
 		ret &= reset();
 
 		//Set to RGB mode, 375 lux, and high IR compensation
-		ret &= config(CFG1_MODE_RGB | CFG1_10KLUX, CFG2_IR_ADJUST_HIGH, CFG_DEFAULT);
+		ret &= config(CFG1_MODE_RGB | CFG1_375LUX, CFG2_IR_ADJUST_HIGH, CFG_DEFAULT);
 
 		return ret;
 	}
@@ -97,8 +97,13 @@ public class ISL29125 {
 
 	// Generic I2C read register (single byte)
 	private int read8(int registerAddress) {
-		sensor.read(registerAddress, 1, buffer81);
-		return buffer81[0];
+        //Read register
+		sensor.read(registerAddress, 1, buffer1);
+
+        //Un-sign the buffer
+        int bufferUnsigned = buffer1[0] & 0xff;
+
+		return bufferUnsigned;
 	}
 
 	//Generic I2C write data to register (single byte)
@@ -108,9 +113,18 @@ public class ISL29125 {
 	
 	//Generic I2C read registers (two bytes)
 	private int read16(int registerAddress) {
-		sensor.read(registerAddress, 1, buffer81);
-		sensor.read(registerAddress + 1, 1, buffer82);
-		return (buffer81[0] |= (buffer82[0] << 8));
+        //Read registers
+		sensor.read(registerAddress, 1, buffer1);
+        sensor.read(registerAddress + 1, 1, buffer2);
+
+        //Un-sign the buffers
+        int buffer1Unsigned = buffer1[0] & 0xff;
+        int buffer2Unsigned = buffer2[0] & 0xff;
+
+        //Add the high value
+        int read = buffer1Unsigned | (buffer2Unsigned << 8);
+
+		return read;
 	}
 	
 	// BEGIN STATIC CONSTANTS //
