@@ -33,7 +33,7 @@ public class ISL29125 {
     // Resets all registers/configurations to factory default
     // Sets configuration registers for the common use case
     public boolean init() {
-        boolean ret = true;
+        boolean ret;
 
         // Check device ID
         ret = (read8(DEVICE_ID) == 0x7D);
@@ -79,7 +79,7 @@ public class ISL29125 {
         write8(CONFIG_3, config3);
 
         //Check if configurations were set correctly
-        ret &= (read8(CONFIG_1) == config1);
+        ret = (read8(CONFIG_1) == config1);
         ret &= (read8(CONFIG_2) == config2);
         ret &= (read8(CONFIG_3) == config3);
 
@@ -101,9 +101,7 @@ public class ISL29125 {
         sensor.read(registerAddress, 1, buffer1);
 
         //Un-sign the buffer
-        int bufferUnsigned = buffer1[0] & 0xff;
-
-        return bufferUnsigned;
+        return (buffer1[0] & 0xff);
     }
 
     //Generic I2C write data to register (single byte)
@@ -122,9 +120,7 @@ public class ISL29125 {
         int buffer2Unsigned = buffer2[0] & 0xff;
 
         //Add the high value
-        int read = buffer1Unsigned | (buffer2Unsigned << 8);
-
-        return read;
+        return (buffer1Unsigned | (buffer2Unsigned << 8));
     }
 
     // BEGIN STATIC CONSTANTS //
