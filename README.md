@@ -1,7 +1,7 @@
 <div align="center"><img src="http://i.imgur.com/kMnwB2H.png"/></div>
 <hr>
 
-<div align="center">Integration for the <b><a href="https://www.sparkfun.com/products/12829">SparkFun RGB Light Sensor Breakout-ISL29125 (SEN-12829)</a></b> with the <b>NI roboRIO</b>, for FIRST Robotics.</div>
+<div align="center">Integration for the <b><a href="https://www.sparkfun.com/products/12829">SparkFun RGB Light Sensor Breakout-ISL29125 (SEN-12829)</a></b> with <b>NI's roboRIO</b>, for FIRST Robotics.</div>
 
 <h1>Repository Contents</h1>
 <ul>
