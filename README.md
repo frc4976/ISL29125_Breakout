@@ -5,8 +5,8 @@
 
 <h1>Repository Contents</h1>
 <ul>
-    <li><b>/src/ca/_4976/color/ISL29125.java</b> - ISL29125 library for the NI roboRIO</li>
-    <li><b>Dash.jar</b> - Color view JFrame utilizing Network Tables for debugging</li>
+    <li><b><a href="https://github.com/frc4976/ISL29125_Breakout/blob/master/src/ca/_4976/color/ISL29125.java">/src/ca/_4976/color/ISL29125.java</a></b> - ISL29125 library for the NI roboRIO</li>
+    <li><b><a href="https://github.com/frc4976/ISL29125_Breakout/blob/master/Dash.jar?raw=true">Dash.jar</a></b> - Color view JFrame utilizing Network Tables for debugging</li>
 </ul>
 
 <h1>Documentation</h1>
