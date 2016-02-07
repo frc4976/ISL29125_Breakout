@@ -9,7 +9,7 @@
             <li><b>IMPORTANT:</b> The SDA and SCL connections on the <b><a href="http://i.imgur.com/vjzoYtm.png">sensor</a></b> and on the <b><a href="http://i.imgur.com/DSNJLGU.png">NI roboRIO</a></b> are swapped. Watch out for this while soldering.</li>
         </ul>
     </li>
-    <li>Install the <b><a href="https://github.com/frc4976/ISL29125_Breakout/blob/master/src/ca/_4976/color/ISL29125.java">ISL29125 library on the NI roboRIO. <b>TIPS:</b>
+    <li>Install the <b><a href="https://github.com/frc4976/ISL29125_Breakout/blob/master/src/ca/_4976/color/ISL29125.java">ISL29125 library</a></b> on the NI roboRIO. <b>TIPS:</b>
         <ul>
             <li>Copy / Paste the file into your robot project directory</li>
         </ul>
