@@ -12,5 +12,5 @@
 <h1>Documentation</h1>
 <ul>
     <li><b><a href="https://learn.sparkfun.com/tutorials/isl29125-rgb-light-sensor-hookup-guide">Quickstart Guide</a></b> - SparkFun's basic hookup guide for the sensor</li>
-    <li><b><a href="">INTEGRATION.md</a></b> - Tutorial for integrating and debugging the sensor with your NI roboRIO</li>
+    <li><b><a href="https://github.com/frc4976/ISL29125_Breakout/blob/master/INTEGRATION.md">INTEGRATION.md</a></b> - Tutorial for integrating and debugging the sensor with your NI roboRIO</li>
 </ul>
