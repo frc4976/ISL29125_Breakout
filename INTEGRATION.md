@@ -17,7 +17,7 @@
     <li>Integrate the library into your project. <b>TIPS:</b>
         <ul>
             <li>Initialize the sensor:
-                <pre><code>
+                <pre><code class="java">
                     //(in header)
                     //Create the sensor object
                     public ISL29125 colorSensor = new ISL29125();
