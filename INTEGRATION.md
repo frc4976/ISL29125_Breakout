@@ -17,35 +17,37 @@
     <li>Integrate the library into your project. <b>TIPS:</b>
         <ul>
             <li>Initialize the sensor:
-                '''//(in header)
+                <pre><code>
+                    //(in header)
                     //Create the sensor object
                     public ISL29125 colorSensor = new ISL29125();
 
                     //(in robotInit())
                     //Run the sensor initialization function (optional: print out the results)
-                    System.out.println(colorSensor.init());'''
+                    System.out.println(colorSensor.init());
+                </code></pre>
             </li>
             <li>Configure the sensor <i>(optional)</i>:
-                <code>
+                <pre><code>
                     //(in robotInit())
                     //Configure the sensor (optional: print out the results)
                     System.out.println(colorSensor.config(CFG1, CFG2, CFG3));
-                </code>
+                </code></pre>
                 The full list of configuration variables are at the bottom of the library file
             </li>
             <li>Get color readings from the sensor:
-                <code>
+                <pre><code>
                     //(in teleopPeriodic())
                     //Request a color reading and store the results
                     int[] colors = colorSensor.readColor();
-                </code>
+                </code></pre>
             </li>
         </ul>
     </li>
     <li>Integrate the Dash.jar debug window <i>(optional)</i>. <b>TIPS:</b>
         <ul>
             <li>Dash.jar uses 3 NetworkTable values (ISL29125-0, ISL29125-1, ISL29125-2), and a table named "data":
-                <code>
+                <pre><code>
                     //(in header)
                     //Create the NetworkTable object
                     public NetworkTable table = NetworkTable.getTable("data");
@@ -55,15 +57,15 @@
                     table.putNumber("ISL29125-0", 0); //The red value
                     table.putNumber("ISL29125-1", 0); //The green value
                     table.putNumber("ISL29125-2", 0); //The blue value
-                </code>
+                </code></pre>
             </li>
             <li>These values are expected to take on a value from 0 - 255, while the ISL29125 sensor provides a 16-bit integer from 0 - 65535:
-                <code>
+                <pre><code>
                     //(in teleopPeriodic())
                     //Add properly formatted color values (divide by 65535, multiply by 255)
                     for (int i = 0; i < colors.length; i++)
                         table.putNumber("ISL29125-" + i, (colors[i] / 65535.0) * 255);
-                </code>
+                </code></pre>
             </li>
         </ul>
     </li>
