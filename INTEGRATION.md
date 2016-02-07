@@ -17,7 +17,7 @@
     <li>Integrate the library into your project. <b>TIPS:</b>
         <ul>
             <li>Initialize the sensor:
-                <code>
+                '''
                     //(in header)
                     //Create the sensor object
                     public ISL29125 colorSensor = new ISL29125();
@@ -25,7 +25,7 @@
                     //(in robotInit())
                     //Run the sensor initialization function (optional: print out the results)
                     System.out.println(colorSensor.init());
-                </code>
+                '''
             </li>
             <li>Configure the sensor <i>(optional)</i>:
                 <code>
