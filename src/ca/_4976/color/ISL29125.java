@@ -16,9 +16,9 @@ public class ISL29125 {
     private int[] color;
 
     // Constructor - Creates sensor object
-    public ISL29125() {
+    public ISL29125(I2C.Port port) {
         // Creates sensor object onboard roboRIO and sets I2C address
-        sensor = new I2C(I2C.Port.kOnboard, ISL_I2C_ADDR);
+        sensor = new I2C(port, ISL_I2C_ADDR);
 
         // Initialize the byte buffers for 8-bit and 16-bit data storage
         buffer1 = new byte[1];
