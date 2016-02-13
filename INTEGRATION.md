@@ -51,11 +51,11 @@ table.putNumber("ISL29125-0", 0); //The red value
 table.putNumber("ISL29125-1", 0); //The green value
 table.putNumber("ISL29125-2", 0); //The blue value</code></pre>
             </li>
-            <li>These values are expected to take on a value from 0 - 255, while the ISL29125 sensor provides a 16-bit integer from 0 - 65535:
+            <li>These values are expected to take on an 8-bit integer from 0 - 255, while the ISL29125 sensor provides a 16-bit integer from 0 - 65535:
 <pre><code>// (in teleopPeriodic())
-// Add properly formatted color values (divide by 65535, multiply by 255)
+// Add properly formatted color values (divide by 257)
 for (int i = 0; i < colors.length; i++)
-    table.putNumber("ISL29125-" + i, (colors[i] / 65535.0) * 255);</code></pre>
+    table.putNumber("ISL29125-" + i, (colors[i] / 257.0);</code></pre>
             </li>
         </ul>
     </li>
