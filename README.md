@@ -1,4 +1,8 @@
-<div align="center"><img src="http://i.imgur.com/kMnwB2H.png"/></div>
+<div align="center"><img src="http://i.imgur.com/WZa5EmF.png"/></div>
+<hr>
+
+<div align="center">WPILib integration for the SparkFun RGB Light Sensor - ISL29125.</div>
+
 <hr>
 
 <div align="center">Integration for the <b><a href="https://www.sparkfun.com/products/12829">SparkFun RGB Light Sensor Breakout-ISL29125 (SEN-12829)</a></b> with <b>NI's roboRIO</b>, for FIRST Robotics.</div>
