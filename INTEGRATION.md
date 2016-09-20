@@ -1,4 +1,9 @@
-<div align="center"><img src="http://i.imgur.com/kMnwB2H.png"/></div>
+<div align="center"><img src="http://i.imgur.com/WZa5EmF.png"/></div>
+
+<hr>
+
+WPILib integration for the SparkFun RGB Light Sensor - ISL29125.
+
 <hr>
 
 <h1>Integration</h1>
