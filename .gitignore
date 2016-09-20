@@ -1,1 +1,9 @@
+<<<<<<< HEAD
 .idea
+=======
+*
+!README.md
+!src/ca/_4976/color/ISL29125.java
+!Dash.jar
+!.gitignore
+>>>>>>> d67b7020812a3633813ad81cc7b4ecaed4175f80
